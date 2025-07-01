@@ -1,5 +1,6 @@
 import { component$, useSignal, useStore } from "@builder.io/qwik";
 import { type DocumentHead, routeAction$, z, zod$ } from "@builder.io/qwik-city";
+import Flow from "~/components/flow";
 import { exceedRate } from "~/functions/rates";
 
 import { compare } from "~/lib/argon";
@@ -53,15 +54,16 @@ export default component$(() => {
     const error = useSignal('')
 
     return <section class="w-dvw max-w-dvw h-dvh p-8 flex flex-col justify-between">
+        <Flow/>
         <header>
-            <h1 class="font-bold text-6xl leading-16">
+            <h1 class="font-bold text-6xl leading-16 shining w-fit">
                 SENS
             </h1>
             <p class="font-light text-2xl">
                 Learn with <span class="text-sens">ease</span> & <span class="text-sens">enthusiasm</span>
             </p>
         </header>
-        <main class="flex flex-col gap-2" 
+        <main class="flex flex-col gap-4" 
             window:onKeyDown$={async (event) => {
                 if(event.key != 'Enter') return
                 if(data.username.length > 8) {
@@ -79,7 +81,7 @@ export default component$(() => {
                     error.value = `You have exceeded the number of attempts allowed, retry in 5 minutes.`
                 }
             }}>
-            <label class="text-2xl font-medium">
+            <label class="text-2xl font-medium leading-8">
                 Login
             </label>
             <input 
@@ -100,11 +102,15 @@ export default component$(() => {
                     { error.value }
                 </p>
             }
-            
-            <a href="/register"
-                class="text-sens text-sm">
-                register
-            </a>
+            <div>
+                <p class="text-sm text-black/25">
+                    Press enter to login
+                </p>
+                <a href="/register"
+                    class="text-sens text-sm">
+                    register
+                </a>
+            </div>
         </main>
         <footer class="text-black/25 text-center w-full">
             Made for IsenEngineering by Livio Ardoin

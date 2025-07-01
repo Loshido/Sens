@@ -1,10 +1,11 @@
 import { component$, useSignal, useStore } from "@builder.io/qwik";
-import { routeAction$, useNavigate, z, zod$, type DocumentHead } from "@builder.io/qwik-city";
+import { routeAction$, z, zod$, type DocumentHead } from "@builder.io/qwik-city";
 import { exceedRate } from "~/functions/rates";
 import { hash, compare } from "~/lib/argon";
 import { sign } from "~/lib/jwt";
 import { connect } from "~/lib/redis";
 import { log } from "~/lib/fs";
+import Flow from "~/components/flow";
 
 export const useRegister = routeAction$(async (data, req) => {
     if(exceedRate('register', req)) {
@@ -49,11 +50,10 @@ export default component$(() => {
     })
     const error = useSignal('')
 
-    const nav = useNavigate()
-
     return <section class="w-dvw h-dvh p-8 flex flex-col justify-between">
+        <Flow/>
         <header>
-            <h1 class="font-bold text-6xl leading-16">
+            <h1 class="font-bold text-6xl leading-16 w-fit shining">
                 SENS
             </h1>
             <p class="font-light text-2xl">
@@ -97,11 +97,15 @@ export default component$(() => {
                     { error.value }
                 </p>
             }
-            
-            <a href="/login"
-                class="text-sens text-sm">
-                login
-            </a>
+            <div>
+                <p class="text-sm text-black/25">
+                    Press enter to register
+                </p>
+                <a href="/login"
+                    class="text-sens text-sm">
+                    login
+                </a>
+            </div>
         </main>
         <footer class="text-black/25 text-center w-full">
             Made for IsenEngineering by Livio Ardoin
