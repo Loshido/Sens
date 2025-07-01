@@ -2,6 +2,9 @@ import { component$, Slot, useSignal } from "@builder.io/qwik";
 import Nav from "~/components/nav";
 import { Link, useLocation } from "@builder.io/qwik-city";
 
+import { admin_middleware } from "~/functions/middleware/auth"
+export const onRequest = admin_middleware
+
 const liens = [
     {
         slot: <>

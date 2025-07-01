@@ -42,4 +42,4 @@ lerna-debug.log*
 !.yarn/releases
 
 # Storage
-/data
+data/logs/*

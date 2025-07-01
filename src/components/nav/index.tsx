@@ -5,7 +5,7 @@ type NavProps = Omit<PropsOf<'dialog'>, 'style' | 'open'> & {
 }
 
 export default component$(({ open, class: className, ...props }: NavProps) => {
-    return <nav class="w-full h-fit p-2 isolate z-30 border-b border-black/5 transition-all">
+    return <nav class="w-full h-fit p-2 isolate z-30 border-b border-black/5 transition-all duration-150">
         <div class={[
             "hover:bg-black/5 w-10 h-10 p-2 rounded cursor-pointer relative group",
             open.value && "open"]}
