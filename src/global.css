@@ -1,1 +1,16 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Inter";
+    src: url(/fonts/Inter.ttf);
+}
+
+@theme {
+    --color-sens: #9902FD;
+    --font-inter: "Inter";
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

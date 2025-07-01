@@ -1,18 +1,14 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
-    return <h1 class="text-black text-4xl">
-        Hi 😘
-    </h1>
+    return <>
+        <section class="w-dvw p-8">
+            <h1 class="text-black text-4xl font-inter font-black">
+                Hey 😘
+            </h1>
+            <p class="text-sens/50">
+                Cette page n'est pas fini
+            </p>
+        </section>
+    </>
 });
-
-export const head: DocumentHead = {
-    title: "Sens",
-    meta: [
-        {
-            name: "description",
-            content: "Enhances the experience of students with events",
-        },
-    ],
-};
