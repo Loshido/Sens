@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import notification from "~/lib/notification";
 
 export default component$(() => {
     return <>

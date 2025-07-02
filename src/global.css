@@ -45,3 +45,8 @@
 ::selection{
     background-color: #9902FD30;
 }
+
+@keyframes fill {
+    from { width: 0; }
+    to { width: 100%; }
+}
