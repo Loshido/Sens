@@ -1,15 +1,6 @@
-import { component$ } from "@builder.io/qwik";
-import notification from "~/lib/notification";
+import { type RequestHandler } from "@builder.io/qwik-city/middleware/request-handler";
 
-export default component$(() => {
-    return <>
-        <section class="w-dvw p-8">
-            <h1 class="text-black text-4xl font-inter font-black">
-                Hey 😘
-            </h1>
-            <p class="text-sens/50">
-                Cette page n'est pas fini
-            </p>
-        </section>
-    </>
-});
+export const onRequest: RequestHandler = request => {
+    if(request.cookie.has('token')) throw request.redirect(302, '/dash')
+    else throw request.redirect(302, '/login')
+}

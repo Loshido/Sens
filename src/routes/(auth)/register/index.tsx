@@ -114,5 +114,11 @@ export default component$(() => {
 })
 
 export const head: DocumentHead = {
-    title: "Register"
+    title: "Register",
+    links: [
+        {
+            rel: 'stylesheet',
+            href: '/style/flow.css'
+        }
+    ]
 };

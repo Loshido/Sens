@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { type DocumentHead, Link } from "@builder.io/qwik-city";
 import Flow from "~/components/flow";
 
 export default component$(() => <section
@@ -21,3 +21,12 @@ export default component$(() => <section
         Navigate to safezone
     </Link>
 </section>)
+
+export const head: DocumentHead = {
+    links: [
+        {
+            rel: 'stylesheet',
+            href: '/style/flow.css'
+        }
+    ]
+};
